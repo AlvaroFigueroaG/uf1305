@@ -13,16 +13,43 @@ function mostrarMultiplos(n, m) {
 }
 
 
+function mostrarResultados(op, n1, n2 = 0) {
 
-function mostrarResultados(nf) {
-    document.getElementById('td21').innerHTML = nf;
-    document.getElementById('td22').innerHTML = factorial(nf);
+    switch (op) {
+        case "multiplo":
+            document.getElementById('td11').innerHTML = n1;
+            document.getElementById('td12').innerHTML = n2;
+            document.getElementById('td13').innerHTML = multiplosDeHasta(n1, n2);
+            break;
+
+        case 'factorial':
+            document.getElementById('td21').innerHTML = n1;
+            document.getElementById('td22').innerHTML = factorial(n1);
+            break;
+        default:
+
+    }
 }
 
+function multiplosDeHasta(n, m) {
+    mensaje = "Los múltiplo de " +
+        n +
+        " hasta " + m +
+        " son: ";
+
+    multiplo = 0;
+    for (i = 1; multiplo < m; i++) {
+        multiplo = n * i;
+        mensaje = mensaje + multiplo + " ";
+    }
+
+    return mensaje;
+}
+/*
 function mostrarFactorial(nf) {
     document.getElementById('td21').innerHTML = nf;
     document.getElementById('td22').innerHTML = factorial(nf);
-}
+}*/
 
 function factorial(nf) {
     var factorial = 1;
@@ -31,18 +58,3 @@ function factorial(nf) {
     }
     return factorial;
 }
-
-function multiplosDeHasta() {
-     mensaje = "Los múltiplo de " +
-         n +
-         " hasta " + m +
-         " son: ";
-
-     multiplo = 0;
-     for (i = 1; multiplo < m; i++) {
-         multiplo = n * i;
-         mensaje = mensaje + multiplo + " ";
-     }
-
-     return mensaje;
- }
